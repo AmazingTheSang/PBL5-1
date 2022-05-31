@@ -14,20 +14,8 @@ session_start();
     $thanhcong=array();
 
     switch($action)
-
     {
-
-        case 'trangchu':
-
-            {
-
-                require_once("View/Trangchu.php");
-                break;
-            }
-       
-        
-        
-        case 'dangnhap':
+        case 'login':
             {
                 if(isset($_POST['signin']))
                 {
@@ -57,7 +45,7 @@ session_start();
                     }
                 }
             }
-                require_once('View/Dangnhap.php');
+                require_once('View/User/Dangnhap.php');
                 break;
             }
 
@@ -103,7 +91,7 @@ session_start();
                
               
               
-                require_once('View/Dangky.php');
+                require_once('View/User/Dangky.php');
                 break;
             }
         case 'edit':
@@ -115,7 +103,7 @@ session_start();
         //        $id=1000;
                 $table="user";
                 $dataedit=$db->getusertheoid($table,$id);
-                require_once('View/Edit_user.php');
+               
 
                 if(isset($_POST['edituser']))
                 {
@@ -135,7 +123,7 @@ session_start();
                    
 
                 }
-                
+                require_once('View/User/Edit_user.php');
                 break;
             }
      
@@ -163,7 +151,7 @@ session_start();
             {
               
                 $users=$db->travelistuser();
-                require_once('View/List_user.php');
+                require_once('View/User/List_user.php');
                 break;
             }
         

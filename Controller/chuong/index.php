@@ -35,7 +35,7 @@ switch($action){
                     
                 }
             
-                require_once('View/doc_truyen.php');
+                require_once('View/Chuong/doc_truyen.php');
                 break;
             }
         
@@ -43,7 +43,7 @@ switch($action){
                    if(isset($_GET['idchuong'])){
                            $idchuong = $_GET['idchuong'];
                            $chuong = $db->getChuong($idchuong);
-                           require_once('View/detailchuong.php');
+                           require_once('View//Chuongdetailchuong.php');
                    }
                     break;
           }

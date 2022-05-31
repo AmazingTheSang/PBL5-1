@@ -12,7 +12,7 @@
         <h2><?= $truyen->Tentruyen ?></h2>
         <p>Tác giả <?= $truyen->Tacgia ?></p>
         <p>Thể loại <?= $theloai ?></p>
-        <button>Theo dõi</button>
+        <input value="Theo dõi" name= "theodoi"/>
         <button>Đọc từ đầu</button>
         <button>Đọc mới nhất</button>
     </div>

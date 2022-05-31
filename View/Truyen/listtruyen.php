@@ -36,7 +36,7 @@
                     ?>
                 <tr>
                     <td><?= $stt ?></td>
-                    <td><img width="30" height="50" src="./Images/<?=$danhsachtruyen[$i]->Hinhdaidien?>"></td>
+                    <td><img width="30" height="50" src="<?=$danhsachtruyen[$i]->Hinhdaidien?>"></td>
                     <td><?= $danhsachtruyen[$i]->Tentruyen ?></td>
                     <td><?=$danhsachtruyen[$i]->Id_Loai?></td>
                     <td><?=$danhsachtruyen[$i]->Tacgia ?></td>
