@@ -12,9 +12,11 @@
         <h2><?= $truyen->Tentruyen ?></h2>
         <p>Tác giả <?= $truyen->Tacgia ?></p>
         <p>Thể loại <?= $theloai ?></p>
-        <input value="Theo dõi" name= "theodoi"/>
-        <button>Đọc từ đầu</button>
-        <button>Đọc mới nhất</button>
+        <form method="POST" action="">
+        <input value="Theo dõi" name= "theodoi" type="submit"/>
+        <a href="index.php?controller=chuong&action=doc_truyen&idchuong=1"><button>Đọc từ đầu</button></a>
+        <a href="index.php?controller=chuong&action=doc_truyen&idchuong=<?= sizeof($danhsachchuong)?>"><button>Đọc mới nhất</button></a>
+        </form>
     </div>
     <div class="danhsachchuong">
         <h3>Danh sách chương</h3>
@@ -32,7 +34,7 @@
                         foreach ($danhsachchuong as $value){ ?>
                 <tr>
                     <td><a href="index.php?controller=chuong&action=doc_truyen&idchuong=<?= $value->Id_Chuong?>">Chapter
-                            <?=$value->Chuongso ?></a></td>
+                    <?=$value->Chuongso ?></a></td>
                     <td><?=$value->Chuongten ?></td>
                 </tr>
                 <?php

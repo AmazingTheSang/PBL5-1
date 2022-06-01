@@ -69,22 +69,6 @@ class m_user
     }
     public function getalluser($table)
     {
-        // $conn =  new mysqli("localhost","root","","pbl5");
-        // if($conn->connect_errno)
-        // {
-        //     echo "Ket noi that bai:" .$conn->connect_error;
-        //     exit();
-        // }
-        // $alluser = "SELECT * FROM user ";
-        // $this->result = mysqli_query($conn, $alluser);
-
-
-        // while ($row=$this->result->fetch_assoc())
-        // {
-        //     $data[]=$row;
-        // }
-
-        // return $data;
        $sql="SELECT * FROM $table ";
         $this->execute($sql);
         if($this->num_rows()==0)
@@ -103,7 +87,7 @@ class m_user
     public function traidtheoten($Ten)
     {
         $users=$this->travelistuser();
-        for($i=1;$i<=sizeof($users);$i++)
+        for($i=0;$i<sizeof($users);$i++)
         {
             if($users[$i]->Ten==$Ten)
             {

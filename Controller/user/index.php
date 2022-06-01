@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 
     if(isset($_GET['action']))
     {
@@ -17,8 +17,9 @@ session_start();
     {
         case 'login':
             {
+
                 if(isset($_POST['signin']))
-                {
+                {  
                     $ten =trim($_POST['username']);
                     $matkhau = trim($_POST['password']);
                
@@ -32,10 +33,11 @@ session_start();
                     if($ktra==1)
                     {
                         $quyen=$db->getusertheoten($ten);
-                       
+                        
                         
                         $_SESSION["id_quyen"] =$quyen['Id_Quyen'];
-                        echo '<script language="javascript">alert("Đăng nhập thành công !!!"); window.location="index.php?controller=user&action=trangchu";</script>';
+                        $_SESSION['id_currentUser'] = $db-> traidtheoten($ten);
+                        echo '<script language="javascript">alert("Đăng nhâp thành công!"); window.location="index.php?controller=truyen&action=trangchu";</script>';
                         
 
                     }

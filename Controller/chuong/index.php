@@ -43,7 +43,7 @@ switch($action){
                    if(isset($_GET['idchuong'])){
                            $idchuong = $_GET['idchuong'];
                            $chuong = $db->getChuong($idchuong);
-                           require_once('View//Chuongdetailchuong.php');
+                           require_once('View/Chuong/doc_truyen.php');
                    }
                     break;
           }

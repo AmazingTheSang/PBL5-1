@@ -14,6 +14,7 @@
 </html>
 
 <?php
+    session_start();
     if (isset($_GET['controller'])){
         $controller = $_GET['controller'];
     }
@@ -49,7 +50,7 @@
             include "Model/Truyen/M_truyen.php";
             $dbtruyen=new m_truyen();
             $dbtruyen->connect();
-            include "Model/Truyen/M_chuong2.php";
+            include "Model/Chuong/M_chuong2.php";
             $db = new m_chuong2();
             $db->connect();
 

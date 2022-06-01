@@ -3,7 +3,7 @@
     class e_user
     {
         public $Id_User;
-        public $Teb;
+        public $Ten;
         public $Ngaysinh;
         public $Diachi;
         public $Email;

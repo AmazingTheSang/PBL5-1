@@ -47,12 +47,15 @@ switch($action){
           case 'detail':{
               
                     if(isset($_GET['idtruyen'])){
-                            $idtruyen=$_GET['idtruyen'];
-                      //        $idtruyen = 1;
+                            $idtruyen=$_GET['idtruyen'];   
+                            $idcurrentUser =  $_SESSION['id_currentUser'];
                               $truyen = $db->getTruyen($idtruyen);
                               $theloai = $db->getTheLoai($truyen->Id_Loai);
                               $danhsachchuong = array();
                               $danhsachchuong = $db->getChuong($idtruyen);
+                              if(isset($_POST['theodoi'])){
+                                      $db->theodoi($idcurrentUser, $idtruyen);
+                              }
                     }
                     require_once('View/Truyen/detailtruyen.php');
                     break;

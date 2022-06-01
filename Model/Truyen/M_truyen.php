@@ -1,7 +1,7 @@
 <?php
 include_once("E_truyen.php");
 //include_once("E_chuong.php");
-
+include_once("./Model/Chuong/E_chuong.php");
 class m_truyen
 {
     private $hostname='localhost';
@@ -160,11 +160,23 @@ class m_truyen
                   $chuongso = $row['Chuongso'];
                   $chuongten =  $row['Chuongten'];
                   $noidung =  $row['Noidung'];
-                  $chuong[$i] = new e_chuong($idchuong, $idtruyen, $chuongso, $chuongten, $noidung );
+                  $chuong[$i] = new E_chuong($idchuong, $idtruyen, $chuongso, $chuongten, $noidung );
                   $i++;
         }
         return $chuong;
       }
+      public function theodoi($iduser, $idtruyen){
+        $sql = "SELECT * FROM theodoi WHERE Id_User = '$iduser' AND Id_Truyen= '$idtruyen' ";
+        $rs = mysqli_query($this->conn, $sql);
+        if($rs->num_rows == 1)
+              {
+                        $sql = "DELETE FROM theodoi WHERE Id_User = '$iduser' AND Id_Truyen= '$idtruyen' ";
+               }
+      else{
+                        $sql = "INSERT INTO  theodoi(Id_User,Id_Truyen) VALUES('$iduser','$idtruyen') ";
+               }
+               mysqli_query($this->conn, $sql);
+}
        public function insertTruyen($idloai,$iduser, $tentruyen,$tacgia,$gioithieu,$ngaydang,$hinhdaidien){
                  $sql = "INSERT INTO truyen(Id_Loai,Id_User,Tentruyen,Tacgia,Gioithieu,Ngaydang,Hinhdaidien) VALUES('$idloai', '$iduser', '$tentruyen', '$tacgia', '$gioithieu', '$ngaydang', '$hinhdaidien')";
                  return $this->execute($sql);
