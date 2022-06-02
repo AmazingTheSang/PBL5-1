@@ -4,71 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
-    <style>
-.btndoctruyen:link, .btndoctruyen:visited {
-  background-color: orange;
-  color: white;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  border-radius: 8px;
-}
-
-.btndoctruyen:hover, .btndoctruyen:active {
-  background-color: orange;
-}
-.btntheodoi:link, .btntheodoi:visited {
-  background-color: green;
-  color: white;
-  padding: 10px 22px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  border-radius: 8px;
-  margin-bottom: 10px;
- 
-}
-
-.btntheodoi:hover, .btntheodoi:active {
-  background-color: green;
-}
-.detail{
-    display: flex;
-    justify-content: left;
-}
-.prop{
-    width: 300px ;
-    margin-left: 30px;
- 
-}
-p{
-    font-family:'Times New Roman', Times, serif;
-    font-size:large;
-}
-tr{
-    height: fit-content;
-}
-td{
-    height: fit-content;
-    padding-left: 30px;
-}
-#tablechuong{
-    border-collapse: collapse;
-  width: 100%;
-}
-#tablechuong th,td{
-    padding: 8px;
-  text-align: left;
-  border-bottom: 1px solid #DDD;
-}
-#tablechuong tr:hover {background-color: #D6EEEE;}
-</style>
+    <link rel="stylesheet" href="CSS/detailtruyen.css" type="text/css">
 </head>
 
 <body>
+<div id="nav">
+
+<ul>
+    <li><a class="navbar-item" href="/">
+            <img width="50" height="50"
+                src="https://drive.google.com/uc?export=view&id=1z1geOoZYriQ-wjqYLDLPPeNmUJCgN9Ku"
+                alt="Doctruyen logo" class="layout_logo__319hZ">
+    </li>
+    <li><a href="#search">Tìm kiếm</a></li>
+    <li><a href="#truyenhot">Truyện hot</a></li>
+    <li><a href="#truyenle">Truyện lẻ</a></li>
+    <li><a href="#truyenbo">Truyện bộ</a></li>
+    <li><a href="#truyenmoi">Truyện mới</a></li>
+    <div class="navbar-end">
+        <a class="dki" href="index.php?controller=user&action=add">Đăng kí</a>
+        <a>/</a>
+        <a class="dnhap" href="index.php?controller=user&action=login">Đăng
+            nhập</a>
+    </div>
+</ul>
+
+</div>
     <div class="truyen">
-        <h2><?= $truyen->Tentruyen ?></h2>
+        <h2 ><?= $truyen->Tentruyen ?></h2>
         <div class="detail">
             <img style="height: 300px;width:185px" alt="Anh dai dien" src="<?= $truyen->Hinhdaidien?>"/>
             <div class="prop">

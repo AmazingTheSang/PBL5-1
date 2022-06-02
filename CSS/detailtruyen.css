@@ -1,0 +1,94 @@
+#nav {
+        
+}
+
+#nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: left;
+    box-shadow: 0 0 10px gray;
+    margin: 0;
+}
+
+
+
+#nav ul .navbar-end {
+    justify-content: flex-end;
+    margin-left: auto;
+    align-items: stretch;
+    display: flex;
+    justify-content: right;
+    padding: 10px;
+}
+
+#nav ul li {
+    padding: 7px;
+}
+
+#nav ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+#nav ul li a:hover {
+    color: blue;
+}
+.btndoctruyen:link, .btndoctruyen:visited {
+background-color: orange;
+color: white;
+padding: 10px 20px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+border-radius: 8px;
+}
+
+.btndoctruyen:hover, .btndoctruyen:active {
+background-color: orange;
+}
+.btntheodoi:link, .btntheodoi:visited {
+background-color: green;
+color: white;
+padding: 10px 22px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+border-radius: 8px;
+margin-bottom: 10px;
+
+}
+
+.btntheodoi:hover, .btntheodoi:active {
+background-color: green;
+}
+.detail{
+display: flex;
+justify-content: left;
+}
+.prop{
+width: 300px ;
+margin-left: 30px;
+
+}
+p{
+font-family:'Times New Roman', Times, serif;
+font-size:large;
+}
+tr{
+height: fit-content;
+}
+td{
+height: fit-content;
+padding-left: 30px;
+}
+#tablechuong{
+border-collapse: collapse;
+width: 100%;
+}
+#tablechuong th,td{
+padding: 8px;
+text-align: left;
+border-bottom: 1px solid #DDD;
+}
+#tablechuong tr:hover {background-color: #D6EEEE;}
