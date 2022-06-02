@@ -7,21 +7,24 @@ else{
 }
 switch($action){
           case 'add':{
-                    
-                    if(isset($_POST['dangtruyen']) ){
-                              $tentruyen = $_POST['tentruyen'];
-                              $loaitruyen = (int)$_POST['loaitruyen'];
-                              $tacgia = $_POST['tacgia'];
-                              $gioithieu = $_POST['gioithieu'];
-                              $anhdaidien = $_POST['hinhdaidien'];
-                              $ngaydang = date('Y-m-d');       
-                             if( $db->insertTruyen($loaitruyen,'1',$tentruyen,$tacgia,$gioithieu,$ngaydang,$anhdaidien)){
-                                       echo '<script>alert("Đăng kí truyện thành công")</script>';
-                             }
-                    }  
+                    if(isset($_SESSION['id_currentUser'])){
+                        if(isset($_POST['dangtruyen']) ){
+                                $tentruyen = $_POST['tentruyen'];
+                                $loaitruyen = (int)$_POST['loaitruyen'];
+                                $tacgia = $_POST['tacgia'];
+                                $gioithieu = $_POST['gioithieu'];
+                                $anhdaidien = $_POST['hinhdaidien'];
+                                $ngaydang = date('Y-m-d');     
+                                  if( $db->insertTruyen($loaitruyen,$_SESSION['id_currentUser'],$tentruyen,$tacgia,$gioithieu,$ngaydang,$anhdaidien)){
+                                          echo '<script>alert("Đăng kí truyện thành công")</script>';
+                                }
+                    }
                     require_once('View/Truyen/themtruyen.php');
                     break;
-          }
+               }else{
+                echo '<script>alert("Bạn cần phải đăng nhập");  window.location="index.php?controller=user&action=login "</script>';
+               }
+        }
           case 'edit':{
                     require_once('View/Truyen/suatruyen.php');
                     break;
@@ -51,10 +54,17 @@ switch($action){
                             $idcurrentUser =  $_SESSION['id_currentUser'];
                               $truyen = $db->getTruyen($idtruyen);
                               $theloai = $db->getTheLoai($truyen->Id_Loai);
+                              $luottheodoi = $db->getLuotTheoDoiByIDTruyen($idtruyen);
+                              if ($truyen->Tinhtrang == 1 ){
+                                      $tinhtrang = "Hoàn thành";
+                              }else{
+                                      $tinhtrang = "Chưa hoàn thành";
+                              }
                               $danhsachchuong = array();
                               $danhsachchuong = $db->getChuong($idtruyen);
-                              if(isset($_POST['theodoi'])){
+                              if(isset($_GET['theodoi'])){
                                       $db->theodoi($idcurrentUser, $idtruyen);
+                            
                               }
                     }
                     require_once('View/Truyen/detailtruyen.php');

@@ -6,7 +6,7 @@
           </head>
           <body>
                     <div class = "themtruyen">
-                              <h3>Đăng truyện của bạn</h3>
+                               <h3>Đăng truyện của bạn</h3>
                               <form action=" " method="POST" enctype="multipart/form-data">
                                         <table>
                                                   <tr>

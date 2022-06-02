@@ -44,6 +44,14 @@ class m_chuong2
             $chuong = new e_chuong($idchuong,$idtruyen,$chuongso,$chuongten,$noidung);
          return $chuong;
         }
+        public function tangluotxem($idtruyen){
+            $sql = "SELECT * FROM truyen WHERE Id_Truyen = '$idtruyen' LIMIT 1 ";
+            $rs = mysqli_query($this->conn, $sql);
+            $obj = $rs->fetch_object();
+            $new_luotxem =$obj->Luotxem + 1;
+            $sql = "UPDATE truyen SET Luotxem = '$new_luotxem' WHERE Id_Truyen = '$idtruyen' ";
+            mysqli_query($this->conn, $sql);
+   }
 }
 
 ?>

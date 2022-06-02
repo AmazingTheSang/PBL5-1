@@ -85,8 +85,9 @@ class m_truyen
        $gioithieu=$obj->Gioithieu;
        $ngaydang=$obj->Ngaydang;
        $hinhdaidien=$obj->Hinhdaidien;
+       $Luotxem = $obj->Luotxem;
        $duyet=$obj->Duyet;
-       $truyen = new e_truyen($idtruyen,$idloai,$iduser,$tentruyen,$tinhtrang,$tacgia,$gioithieu,$ngaydang,$hinhdaidien,0,$duyet);
+       $truyen = new e_truyen($idtruyen,$idloai,$iduser,$tentruyen,$tinhtrang,$tacgia,$gioithieu,$ngaydang,$hinhdaidien,$Luotxem,$duyet);
         return $truyen;
        }
        public function getAllTruyen(){
@@ -177,21 +178,18 @@ class m_truyen
                }
                mysqli_query($this->conn, $sql);
 }
-       public function insertTruyen($idloai,$iduser, $tentruyen,$tacgia,$gioithieu,$ngaydang,$hinhdaidien){
+       public function insertTruyen($idloai,$iduser, $tentruyen,$tacgia,$gioithieu,$ngaydang,$hinhdaidien ){
                  $sql = "INSERT INTO truyen(Id_Loai,Id_User,Tentruyen,Tacgia,Gioithieu,Ngaydang,Hinhdaidien) VALUES('$idloai', '$iduser', '$tentruyen', '$tacgia', '$gioithieu', '$ngaydang', '$hinhdaidien')";
-                 return $this->execute($sql);
-       }
-       public function updateTruyen($idloai, $tentruyen,$tinhtrang,$tacgia,$gioithieu, $hinhdaidien){
-                 $sql = "UPDATE truyen SET Id_Loai = '$idloai', Tentruyen ='$tentruyen', Tinhtrang='$tinhtrang',Tacgia = '$tacgia', Gioithieu='$gioithieu' , Hinhdaidien='$hinhdaidien'";
                  return $this->execute($sql);
        }
        public function duyetTruyen($idtruyen){
                  $sql = "UPDATE truyen SET Duyet = '1' WHERE Id_Truyen = '$idtruyen'" ;
                  return $this->execute($sql);
        }
-       public function deleteTruyen($idtruyen){
-                 $sql = "DELETE FROM truyen WHERE Id_Truyen = '$idtruyen'";
-                 return $this->execute($sql);
+       public function getLuotTheoDoiByIDTruyen($idtruyen){
+           $sql = "SELECT * FROM theodoi WHERE Id_Truyen = '$idtruyen' ";
+           $rs = mysqli_query($this->conn, $sql);
+           return $rs->num_rows;
        }
 }
 

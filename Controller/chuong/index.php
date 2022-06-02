@@ -31,8 +31,8 @@ switch($action){
                 if(isset($_GET['idchuong'])){
                     $idchuong = $_GET['idchuong'];
                     $chuong = $db->getChuong($idchuong);
-                    $truyen=$dbtruyen->getTruyen($chuong->Id_Truyen);
-                    
+                    $idtruyen = $_GET['idtruyen'] ;
+                    $db->tangluotxem($idtruyen);
                 }
             
                 require_once('View/Chuong/doc_truyen.php');
