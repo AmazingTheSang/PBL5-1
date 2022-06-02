@@ -7,13 +7,37 @@
     <link href="View\style.css" rel="stylesheet">
     <title>Duyệt truyện</title>
 
+    <style>
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table td, table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+
+
+table tr:hover {background-color: #ddd;}
+
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
 </head>
 
 <body>
 
     <form class="danhsachtruyen" method="POST">
         <h3>Danh sách truyện chờ duyệt</h3>
-        <table border="1px">
+        <table>
             <thead>
                 <tr>
                     <th>Số thứ tự</th>
